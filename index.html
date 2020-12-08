@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript" src="js/bancoCiudad.js" ></script>
+    <title>Lector de Subasta</title>
+</head>
+<body>
+    <div ng-app="BC" ng-controller="CtrlBC">
+        <h6>Banco Ciudad</h6>
+        <input type="text" ng-keyup="getSubasta()" ng-mousedown="getSubasta()" ng-model="idSubastaBC">
+        <table>
+            <tbody ng-repeat="itemBC in itemsBC | orderBy : 'base'">
+                <tr>
+                    <td>{{ itemBC.descripcion }}</td>
+                    <td>${{ itemBC.base }}</td>
+                    <td>{{ itemBC.montoCaucion }}</td>
+                </tr>
+                <tr>
+                    <td><img src="https://subastas.bancociudad.com.ar/subastas_rest/lotes/imagen/{{ itemBC.idLote }}/1" height="100%" ></td>
+                    <td><img src="https://subastas.bancociudad.com.ar/subastas_rest/lotes/imagen/{{ itemBC.idLote }}/2" height="100%"></td>
+                    <td><img src="https://subastas.bancociudad.com.ar/subastas_rest/lotes/imagen/{{ itemBC.idLote }}/3" height="100%"></td>
+                </tr>
+                <br>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
